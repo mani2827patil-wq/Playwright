@@ -11,6 +11,7 @@ const CheckoutCompletePage = require('../pages/CheckoutCompletePage');
 
 test('Add product to cart', async ({ page }) => {
     const inventory = new InventoryPage(page);
+    await inventory.sortProductName();
     await inventory.addToCart();
     await inventory.shoppingCart()
 

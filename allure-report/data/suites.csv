@@ -1,7 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","4613","Login Test","firefox","2026-07-23","passed","2026-07-23","","login.spec.js","",""
-"","4719","Login Test","chromium","2026-07-23","passed","2026-07-23","","login.spec.js","",""
-"","5927","Add product to cart","firefox","2026-07-23","passed","2026-07-23","","checkout.spec.js","",""
-"","3484","Login Test","webkit","2026-07-23","passed","2026-07-23","","login.spec.js","",""
-"","6691","Add product to cart","chromium","2026-07-23","passed","2026-07-23","","checkout.spec.js","",""
-"","4121","Add product to cart","webkit","2026-07-23","passed","2026-07-23","","checkout.spec.js","",""
