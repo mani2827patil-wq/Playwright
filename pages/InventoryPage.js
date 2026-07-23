@@ -1,6 +1,5 @@
 
 const { test, expect } = require('@playwright/test');
-const Index = require('selenium-webdriver/bidi');
 
 class InventoryPage {
 
