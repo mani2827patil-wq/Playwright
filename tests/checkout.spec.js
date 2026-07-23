@@ -1,13 +1,13 @@
 
-const { test, expect } = require('../base/baseTest');
-const InventoryPage = require('../pages/InventoryPage')
-const LoginPage = require('../pages/LoginPage')
+const { test, expect } = require('../base/BaseTest');
+const InventoryPage = require('../pages/InventoryPage');
+const LoginPage = require('../pages/LoginPage');
 const data = require('../test-data/users');
 const CartPage = require('../pages/CartPage');
 const CheckoutPage = require('../pages/CheckoutPage');
 const CheckoutOverviewPage = require('../pages/CheckoutOverviewPage');
 const CheckoutCompletePage = require('../pages/CheckoutCompletePage');
-const products = require('../test-data/products')
+const products = require('../test-data/products');
 
 
 test('Verify checkout flow', async ({ page }) => {
