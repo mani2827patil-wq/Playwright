@@ -1,4 +1,5 @@
 const {test, expect} = require('@playwright/test')
+const fakerUtils = require('../utils/fakerUtils')
 
 class CheckoutPage {
 
@@ -19,10 +20,10 @@ class CheckoutPage {
      await expect(this.continueButton).toBeVisible();
     }
 
-    async checkoutContinue(){
-        await this.firstName.fill('John');
-        await this.lastName.fill('Doe');
-        await this.postalCode.fill('12345');
+    async clickContinueButton(){
+        await this.firstName.fill(fakerUtils.getFirstName());
+        await this.lastName.fill(fakerUtils.getLastName());
+        await this.postalCode.fill(fakerUtils.getPostalCode());
         await this.continueButton.click();
     }
 }

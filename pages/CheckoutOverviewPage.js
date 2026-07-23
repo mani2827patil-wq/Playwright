@@ -4,24 +4,24 @@ class CheckoutOverviewPage {
 
     constructor(page){
         this.page = page;
-        this.checkoutOverviewTitle = page.locator('.title');
-        this.inventoryItemName = page.locator('.inventory_item_name');
-        this.cartQuantity = page.locator('.cart_quantity');
-        this.inventoryItemPrice = page.locator('.inventory_item_price');
-        this.paymentInfo = page.locator('[data-test="payment-info-label"]');
-        this.shippingInfo = page.locator('[data-test="shipping-info-label"]');
+        this.checkoutOverviewTitleLabel = page.locator('.title');
+        this.productNameLabel = page.locator('.inventory_item_name');
+        this.productQuantityLabel = page.locator('.cart_quantity');
+        this.productPriceLabel = page.locator('.inventory_item_price');
+        this.paymentInformationLabel = page.locator('[data-test="payment-info-label"]');
+        this.shippingInformationLabel = page.locator('[data-test="shipping-info-label"]');
         this.priceTotal = page.locator('[data-test="total-info-label"]');
-        this.itemTotal = page.locator('[data-test="subtotal-label"]');
-        this.tax = page.locator('.summary_tax_label');
-        this.total = page.locator('.summary_total_label');
+        this.itemTotalLabel = page.locator('[data-test="subtotal-label"]');
+        this.taxLabel = page.locator('.summary_tax_label');
+        this.totalLabel = page.locator('.summary_total_label');
         this.cancelButton = page.getByRole('button', {name : 'Cancel'});
         this.finishButton = page.getByRole('button', {name : 'Finish'});
     }
 
-    async validateCheckoutOverview(){
-        await expect(this.checkoutOverviewTitle).toHaveText('Checkout: Overview');
-        await expect(this.paymentInfo).toHaveText('Payment Information:');
-        await expect(this.shippingInfo).toHaveText('Shipping Information:');
+    async verifyCheckoutOverviewPage(){
+        await expect(this.checkoutOverviewTitleLabel).toHaveText('Checkout: Overview');
+        await expect(this.paymentInformationLabel).toHaveText('Payment Information:');
+        await expect(this.shippingInformationLabel).toHaveText('Shipping Information:');
         await expect(this.cancelButton).toBeVisible();
         await expect(this.finishButton).toBeVisible();
 
@@ -29,16 +29,16 @@ class CheckoutOverviewPage {
 
     async getCheckoutData() {
     return {
-        productName: await this.inventoryItemName.textContent(),
-        quantity: await this.cartQuantity.textContent(),
-        price: await this.inventoryItemPrice.textContent(),
-        itemTotal: await this.itemTotal.textContent(),
-        tax: await this.tax.textContent(),
-        total: await this.total.textContent()
+        productName: await this.productNameLabel.textContent(),
+        quantity: await this.productQuantityLabel.textContent(),
+        price: await this.productPriceLabel.textContent(),
+        itemTotal: await this.itemTotalLabel.textContent(),
+        tax: await this.taxLabel.textContent(),
+        total: await this.totalLabel.textContent()
     };
 }
 
-    async finishCheckout(){
+    async clickFinishButton(){
         await this.finishButton.click();
     }
 }

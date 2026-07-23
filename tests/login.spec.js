@@ -1,9 +1,9 @@
 const { test, expect } = require("playwright/test");
 const LoginPage = require("../pages/LoginPage");
 const InventoryPage = require("../pages/InventoryPage");
-const data = require('../utils/testData');
+const data = require('../test-data/users');
 
-test('Login Test', async ({ page }) => {
+test('Verify successful login', async ({ page }) => {
 
     await page.goto('/');
 

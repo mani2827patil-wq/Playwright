@@ -20,7 +20,7 @@ class InventoryPage {
         await expect(products).toHaveCount(6);
     }
 
-    async addToCart() {
+    async clickAddToCart() {
         await expect(this.inventoryItemName).toContainText('Sauce Labs');
         await expect(this.addToCartButton).toBeVisible();
         await this.addToCartButton.click();
@@ -35,7 +35,7 @@ class InventoryPage {
 
     }
 
-    async shoppingCart() {
+    async clickShoppingCart() {
         await this.shoppingCartButton.click()
 
     }

@@ -1,38 +1,39 @@
 
-const { test, expect } = require('../base/BaseTest');
+const { test, expect } = require('../base/baseTest');
 const InventoryPage = require('../pages/InventoryPage')
 const LoginPage = require('../pages/LoginPage')
-const data = require('../utils/testData');
+const data = require('../test-data/users');
 const CartPage = require('../pages/CartPage');
 const CheckoutPage = require('../pages/CheckoutPage');
 const CheckoutOverviewPage = require('../pages/CheckoutOverviewPage');
 const CheckoutCompletePage = require('../pages/CheckoutCompletePage');
+const products = require('../test-data/products')
 
 
-test('Add product to cart', async ({ page }) => {
+test('Verify checkout flow', async ({ page }) => {
     const inventory = new InventoryPage(page);
     await inventory.sortProductName();
-    await inventory.addToCart();
-    await inventory.shoppingCart()
+    await inventory.clickAddToCart();
+    await inventory.clickShoppingCart()
 
     const cart = new CartPage(page);
     await cart.validateYourCart();
-    await cart.checkout();
+    await cart.clickCheckoutButton();
 
     const checkout = new CheckoutPage(page);
-    await checkout.validateCheckout();
-    await checkout.checkoutContinue();
+    await checkout.validateCheckout(); 
+    await checkout.clickContinueButton();
 
     const checkoutOverview = new CheckoutOverviewPage(page);
-    await checkoutOverview.validateCheckoutOverview();
+    await checkoutOverview.verifyCheckoutOverviewPage();
 
     const checkoutData = await checkoutOverview.getCheckoutData();
-    expect(checkoutData.productName).toBe('Sauce Labs Backpack');
+    expect(checkoutData.productName).toBe(products.backpack.name);
     expect(checkoutData.quantity).toBe('1');
-    expect(checkoutData.price).toBe('$29.99');
-    expect(checkoutData.total).toBe('Total: $32.39');
+    expect(checkoutData.price).toBe(products.backpack.price);
+    expect(checkoutData.total).toBe('Total: ' + products.backpack.total);
  
-    await checkoutOverview.finishCheckout();
+    await checkoutOverview.clickFinishButton();
 
     const completeCheckout = new CheckoutCompletePage(page);
     await completeCheckout.validateCheckoutComplete();

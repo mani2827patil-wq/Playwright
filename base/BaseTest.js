@@ -1,8 +1,7 @@
 
 const { test, expect } = require('@playwright/test');
 const LoginPage = require('../pages/LoginPage');
-const data = require('../utils/testData');
-
+const data = require('../test-data/users');
 
 test.beforeEach(async ({ page }) => {
     await page.goto('/');

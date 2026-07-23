@@ -5,7 +5,6 @@ class CheckoutCompletePage {
     constructor(page) {
         this.page= page;
         this.checkoutCompleteTitle = page.locator('.title');
-        //this.thankyouMessgae = page.locotor('[data-test="complete-header"]'); 
         this.thankyouMessgae = page.getByText('Thank you for your order!');
         this.completeText = page.getByText('Your order has been dispatched, and will arrive just as fast as the pony can get there!');
         this.backButton = page.getByRole('button', { name: 'Back Home' });
